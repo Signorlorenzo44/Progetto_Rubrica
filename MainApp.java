@@ -1,22 +1,42 @@
+package com.example.addressbook;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ *Classe principale che avvia l'applicazione e gestisce la finestra principale.
+ */
 public class MainApp extends Application {
+
+    /**
+      La finestra principale dell'applicazione.
+     */
+    private Stage primaryStage;
+
+    /**
+      La scena principale che contiene l'interfaccia utente.
+     */
+    private Scene mainScene;
+
+    /**
+      Il punto di ingresso per l'applicazione JavaFX.
+      Imposta il titolo della finestra e la scena da visualizzare.
+
+      @param primaryStage La finestra principale dell'applicazione.
+     */
     @Override
     public void start(Stage primaryStage) {
-        MainView mainView = new MainView();
-        AddressBookModel model = new AddressBookModel();
-        MainController controller = new MainController(model, mainView);
+        this.primaryStage = primaryStage;
 
-        Scene scene = new Scene(mainView.getRoot(), 800, 600);
+        // Imposta il titolo della finestra principale
         primaryStage.setTitle("Address Book");
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
 
-    public static void main(String[] args) {
-        launch(args);
+        // Imposta la scena principale nell'applicazione
+        primaryStage.setScene(mainScene);
+
+        // Mostra la finestra principale
+        primaryStage.show();
     }
 }
 
